@@ -1,6 +1,6 @@
 {
-  "name": "Code Gen PoC",
-  "id": "code-gen-poc",
+  "name": "Code Gen",
+  "id": "code-gen",
   "api": "1.0.0",
   "editorType": ["figjam"],
   "permissions": [],

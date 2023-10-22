@@ -1,6 +1,6 @@
-import OpenAI from "../node_modules/openai/index";
+// import OpenAI from "openai";
 
-const openai = new OpenAI()
+// const openai = new OpenAI({ apiKey: "test" })
 
 export const imageToCode = (image: Uint8Array, userPrompt: string) => {
     // This section just returns pre-canned responses because images
@@ -13,31 +13,31 @@ export const imageToCode = (image: Uint8Array, userPrompt: string) => {
 }
 
 // This represents how we *should* be calling OpenAI
-const getGenerations = async (image: Uint8Array, userPrompt: string) => {
-    const chatCompletion = await openai.chat.completions.create({
-        messages: [
-            {
-                role: 'system',
-                content: systemPrompt,
-            },
-            { 
-                role: 'user', 
-                content: getUserPrompt(userPrompt), 
-            },
-            // Stuff for putting the image should go here
-        ],
-        model: 'gpt-3.5-turbo',
-    });
-    return chatCompletion.choices[0].message
-}
+// const getGenerations = async (image: Uint8Array, userPrompt: string) => {
+//     const chatCompletion = await openai.chat.completions.create({
+//         messages: [
+//             {
+//                 role: 'system',
+//                 content: systemPrompt,
+//             },
+//             { 
+//                 role: 'user', 
+//                 content: getUserPrompt(userPrompt), 
+//             },
+//             // Stuff for putting the image should go here
+//         ],
+//         model: 'gpt-3.5-turbo',
+//     });
+//     return chatCompletion.choices[0].message
+// }
 
-const getUserPrompt = (userPrompt?: string) => {
-    if (userPrompt) {
-        return userPrompt;
-    } else {
-        return `Please examine the following image and translate it into Pulumi code.`;
-    }
-}
+// const getUserPrompt = (userPrompt?: string) => {
+//     if (userPrompt) {
+//         return userPrompt;
+//     } else {
+//         return `Please examine the following image and translate it into Pulumi code.`;
+//     }
+// }
 
 const systemPrompt = `Your job is to help users translate images depicting software architecture
 into Pulumi code. You should be incredibly precise, as they should be able to run this code.
