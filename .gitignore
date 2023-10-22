@@ -1,0 +1,19 @@
+# Figma Plugin
+node_modules/
+dist/
+*.log
+
+# Environment Variables
+.env
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OSX
+.DS_Store

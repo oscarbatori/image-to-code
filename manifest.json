@@ -1,0 +1,12 @@
+{
+  "name": "Code Gen PoC",
+  "id": "code-gen-poc",
+  "api": "1.0.0",
+  "editorType": ["figjam"],
+  "permissions": [],
+  "main": "dist/code.js",
+  "ui": "dist/index.html",
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
+}
