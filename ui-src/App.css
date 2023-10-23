@@ -36,46 +36,10 @@ body {
 }
 
 button {
-  border-radius: 0.25rem;
-  background: var(--color-bg);
-  color: var(--color-text);
   cursor: pointer;
-  border: 1px solid var(--color-border);
-  padding: 0.5rem 1rem;
-}
-button:hover {
-  background-color: var(--color-bg-hover);
-}
-button:active {
-  background-color: var(--color-bg-active);
 }
 button:focus-visible {
-  border: none;
   outline-color: var(--color-border-focus);
-}
-button.brand {
-  --color-bg: var(--color-bg-brand);
-  --color-text: var(--color-text-brand);
-  --color-bg-hover: var(--color-bg-brand-hover);
-  --color-bg-active: var(--color-bg-brand-active);
-  --color-border: transparent;
-  --color-border-focus: var(--color-border-brand-focus);
-}
-
-input {
-  background: 1px solid var(--color-bg);
-  border: 1px solid var(--color-border);
-  color: 1px solid var(--color-text);
-  padding: 0.5rem;
-}
-
-input:focus-visible {
-  border-color: var(--color-border-focus);
-  outline-color: var(--color-border-focus);
-}
-
-svg {
-  stroke: var(--color-icon, rgba(0, 0, 0, 0.9));
 }
 
 main {
@@ -83,6 +47,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 section {
@@ -101,5 +67,10 @@ footer > * + * {
 
 img {
   height: auto;
-  width: 2rem;
+  width: 4rem;
+  padding-bottom: 0.5rem;
+}
+
+.actionButton {
+  margin: 0.5rem;
 }

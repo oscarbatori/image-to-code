@@ -1,12 +1,14 @@
 import React, { useRef } from "react";
 import logoPng from "./logo.png";
+import "react-figma-plugin-ds/figma-plugin-ds.css";
 import "./App.css";
+import { Textarea, Button } from "react-figma-plugin-ds";
+
 
 function App() {
-  const inputRef = useRef<HTMLInputElement>(null);
+  let prompt = ""
 
   const onCreate = () => {
-    const prompt = inputRef.current?.value || undefined;
     parent.postMessage(
       { pluginMessage: { type: "prompt", prompt } },
       "*"
@@ -17,22 +19,38 @@ function App() {
     parent.postMessage({ pluginMessage: { type: "cancel" } }, "*");
   };
 
+  const updatePrompt = (value: string) => {
+    prompt = value;
+  }
+
+  const textarea = <Textarea
+    className=""
+    defaultValue=""
+    onChange={(value) => updatePrompt(value)}
+    placeholder="Provide extra prompt instructions for the code generation task..."
+    rows={2}
+  />
+
+  const createButton = <Button className="actionButton" onClick={onCreate}>Create</Button>
+  const cancelButton  = <Button className="actionButton" isSecondary={true} onClick={onCancel}>Cancel</Button>
+
+  const buttonContainerStyle = {
+    display: 'flex',
+    gap: '10px', // spacing between buttons
+  };
+
   return (
     <main>
       <header>
         <img src={logoPng} />
-        <h2>Image to Code Translator</h2>
+        <h2 style={{ fontSize: '14px' }}>Image to Code Translator</h2>
       </header>
-      <section>
-        <input id="input" type="text" min="0" ref={inputRef} />
-        <label htmlFor="input">Extra prompt instructions</label>
-      </section>
-      <footer>
-        <button className="brand" onClick={onCreate}>
-          Create
-        </button>
-        <button onClick={onCancel}>Cancel</button>
-      </footer>
+      {textarea}
+      <div style={buttonContainerStyle}>
+        {createButton}
+        {cancelButton}
+      </div>
+      
     </main>
   );
 }
